@@ -11,6 +11,12 @@ class EventsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:events)
   end
 
+  test "should get index as json" do
+  end
+  
+  test "should get index with filter query params" do
+  end
+  
   test "should get new" do
     get :new
     assert_response :success
@@ -39,6 +45,9 @@ class EventsControllerTest < ActionController::TestCase
     assert_redirected_to event_path(assigns(:event))
   end
 
+  test "should update event as json" do
+  end
+  
   test "should destroy event" do
     assert_difference('Event.count', -1) do
       delete :destroy, :id => @event.to_param

@@ -1,15 +1,15 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  starts_at: 2011-04-08 22:39:48
-  ends_at: 2011-04-08 22:39:48
+  title: Birthday Party
+  starts_at: 2011-06-14 14:00:00
+  ends_at: 2011-04-14 15:30:00
   all_day: false
-  description: MyText
+  description: My Kid's Birthday
 
 two:
-  title: MyString
-  starts_at: 2011-04-08 22:39:48
-  ends_at: 2011-04-08 22:39:48
-  all_day: false
-  description: MyText
+  title: Aniversary
+  starts_at: 2011-06-14 00:00:00
+  ends_at: 2011-06-14 23:59:59
+  all_day: true
+  description: My wedding anniversary

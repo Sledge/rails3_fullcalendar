@@ -1,7 +1,5 @@
 class Event < ActiveRecord::Base
-  
-  scope :in_range, lambda {|start_time, end_time| {:conditions => ["starts_at > ? and ends_at < ?", start_time, end_time] }}
-  
+    
   scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
   scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
   

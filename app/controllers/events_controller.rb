@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @events }
-      format.json  { render :json => @events }
+      format.js  { render :json => @events }
     end
   end
 
@@ -21,6 +21,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @event }
+      format.js { render :json => @event.to_json }
     end
   end
 
@@ -60,14 +61,16 @@ class EventsController < ApplicationController
   # PUT /events/1.xml
   def update
     @event = Event.find(params[:id])
-
+    
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
+        format.js { head :ok}
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
+        format.js  { render :js => @event.errors, :status => :unprocessable_entity }
       end
     end
   end

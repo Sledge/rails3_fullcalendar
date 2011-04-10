@@ -2,6 +2,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index   
+    # full_calendar will hit the index method with query parameters
+    # 'start' and 'end' in order to filter the results for the
+    # appropriate month/week/day.  It should be possiblt to change
+    # this to be starts_at and ends_at to match rails conventions.
+    # I'll eventually do that to make the demo a little cleaner.
     @events = Event.scoped  
     @events = @events.after(params['start']) if (params['start'])
     @events = @events.before(params['end']) if (params['end'])
@@ -59,6 +64,10 @@ class EventsController < ApplicationController
 
   # PUT /events/1
   # PUT /events/1.xml
+  # PUT /events/1.js
+  # when we drag an event on the calendar (from day to day on the month view, or stretching
+  # it on the week or day view), this method will be called to update the values.
+  # viv la REST!
   def update
     @event = Event.find(params[:id])
     
